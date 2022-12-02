@@ -5,11 +5,19 @@ screen = Screen()
 screen.setup(width=800, height=600)
 screen.bgcolor("black")
 screen.title("PONG")
-# screen.tracer(0)
+screen.tracer(0)
 screen.listen()
-paddle1 = Paddle()
+r_paddle = Paddle((350,0))
+l_paddle = Paddle((-350,0))
 
-screen.onkey(paddle1.p1_up(),"Up")
+screen.onkey(r_paddle.paddle_up,"Up")
+screen.onkey(r_paddle.paddle_down,"Down")
+screen.onkey(l_paddle.paddle_up,"w")
+screen.onkey(l_paddle.paddle_down,"s")
+game_is_on = True
+
+while game_is_on:
+    screen.update()
 
 
 
